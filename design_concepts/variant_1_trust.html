@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrust India - Career Guaranteed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        trust: {
+                            900: '#0A2647', // Deep Navy
+                            800: '#144272', // Rich Blue
+                            700: '#205295', // Bright Blue
+                            500: '#2C74B3', // Action Blue
+                            50: '#F0F5FA',  // Lightest
+                        },
+                        verified: {
+                            DEFAULT: '#059669', // Green
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .ticker-wrap {
+            overflow: hidden;
+            background-color: #0A2647;
+            padding-left: 100%;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-slate-800">
+
+    <!-- Top Trust Bar -->
+    <div class="bg-trust-900 text-white text-xs py-2">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center"><i class="ph-fill ph-seal-check text-verified mr-1"></i> Govt. Registered</span>
+                <span class="flex items-center"><i class="ph-fill ph-shield-check text-verified mr-1"></i> ISO 9001 Certified</span>
+            </div>
+            <div class="flex items-center space-x-4 opacity-90">
+                <span>Support: +91 98765-43210</span>
+                <span>हिंदी / தமிழ் / తెలుగు</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-trust-800 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-trust-900 leading-none">BharatSkill</h1>
+                    <p class="text-[10px] text-trust-500 font-semibold tracking-wider uppercase">Vetted by Experts</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-trust-700 transition">Find a Mentor</a>
+                <a href="#" class="hover:text-trust-700 transition">Skill Paths</a>
+                <a href="#" class="hover:text-trust-700 transition">Placements</a>
+                <a href="#" class="hover:text-trust-700 transition">Community</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button class="text-trust-700 font-medium hover:bg-trust-50 px-4 py-2 rounded-lg transition">Log in</button>
+                <button class="bg-trust-800 hover:bg-trust-900 text-white px-5 py-2.5 rounded-lg font-semibold shadow-lg shadow-trust-900/20 transition flex items-center">
+                    Get Started
+                    <i class="ph-bold ph-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Placement Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker text-white/90 text-sm py-2 font-medium">
+            <span class="mx-8">✨ Congratulations <span class="text-yellow-400 font-bold">Rajan K. (Bhopal)</span> for joining <span class="font-bold">HDFC Bank</span> as Date Entry Operator</span>
+            <span class="mx-8">✨ <span class="text-yellow-400 font-bold">Priya S. (Madurai)</span> placed at <span class="font-bold">TCS iON</span> (Python Jr. Dev)</span>
+            <span class="mx-8">✨ <span class="text-yellow-400 font-bold">Amit V. (Kanpur)</span> verified as <span class="font-bold">Senior Electrician</span> on UrbanCompany</span>
+            <span class="mx-8">✨ <span class="text-yellow-400 font-bold">Anjali M. (Pune)</span> cleared <span class="font-bold">SSC CGL Tier 1</span> with 92% score</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative bg-white overflow-hidden">
+        <div class="absolute inset-0 bg-trust-50/50"></div>
+        <div class="container mx-auto px-6 py-20 relative">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center bg-blue-100/50 text-trust-800 px-4 py-1.5 rounded-full text-sm font-semibold border border-blue-100">
+                        <span class="w-2 h-2 bg-verified rounded-full mr-2 animate-pulse"></span>
+                        Trusted by 10,000+ Indian Families
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold text-trust-900 leading-tight">
+                        Don't Just Learn. <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-trust-700 to-trust-500">Get Career Verified.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-lg">
+                        The only platform where every mentor is vetted, every course leads to a job outcome, and your certificate actually means something.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-trust-800 hover:bg-trust-900 text-white text-lg px-8 py-4 rounded-xl font-semibold shadow-xl shadow-trust-900/20 transition flex items-center justify-center">
+                            Start Free Assessment
+                            <i class="ph-bold ph-caret-right ml-2"></i>
+                        </button>
+                        <button class="bg-white border-2 border-gray-200 hover:border-trust-200 text-gray-700 text-lg px-8 py-4 rounded-xl font-semibold transition flex items-center justify-center">
+                            <i class="ph-fill ph-play-circle text-trust-600 mr-2"></i>
+                            How it Works
+                        </button>
+                    </div>
+
+                    <div class="pt-8 border-t border-gray-200">
+                        <p class="text-sm text-gray-500 mb-4 font-medium">Hiring Partners & Certifiers</p>
+                        <div class="flex gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                            <!-- Mock Logos -->
+                            <div class="h-8 font-bold text-xl text-gray-800 flex items-center"><i class="ph-fill ph-buildings mr-2"></i> TATA Strive</div>
+                            <div class="h-8 font-bold text-xl text-gray-800 flex items-center"><i class="ph-fill ph-laptop mr-2"></i> Infosys</div>
+                            <div class="h-8 font-bold text-xl text-gray-800 flex items-center"><i class="ph-fill ph-bank mr-2"></i> SBI PO</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="relative">
+                    <!-- The Shield Card -->
+                    <div class="absolute -top-12 -left-12 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                    <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                    
+                    <div class="relative bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 divide-y divide-gray-100">
+                        <!-- Header -->
+                        <div class="p-6 bg-gradient-to-br from-trust-900 to-trust-800 rounded-xl text-white">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <p class="text-blue-200 text-sm font-medium">Career Path</p>
+                                    <h3 class="text-2xl font-bold">Data Entry Specialist</h3>
+                                </div>
+                                <div class="bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                                    <i class="ph-fill ph-shield-check text-2xl text-verified"></i>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-blue-100">
+                                <span class="bg-verified/20 text-verified px-2 py-0.5 rounded text-xs font-bold border border-verified/30">VERIFIED DEMAND</span>
+                                <span>• 450+ Jobs Open Now</span>
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="p-6 grid grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-500 text-xs uppercase tracking-wide font-semibold mb-1">Avg. Salary</p>
+                                <p class="text-xl font-bold text-trust-900">₹18,000<span class="text-sm font-normal text-gray-500">/mo</span></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs uppercase tracking-wide font-semibold mb-1">Time to Job</p>
+                                <p class="text-xl font-bold text-trust-900">3 Months</p>
+                            </div>
+                        </div>
+
+                        <!-- Mentor Preview -->
+                        <div class="p-6 flex items-center gap-4 bg-gray-50">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-xl">👨🏽‍🏫</div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Mentor: Rajesh Kumar</p>
+                                <p class="text-xs text-gray-500">Ex-HDFC Bank • Speaks Hindi</p>
+                            </div>
+                            <button class="ml-auto text-xs font-bold text-trust-700 hover:underline">View Profile</button>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white p-4 rounded-xl shadow-xl border border-gray-100 animate-bounce cursor-pointer hover:scale-105 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-verified">
+                                <i class="ph-fill ph-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Placement Rate</p>
+                                <p class="text-lg font-bold text-gray-900">92% Success</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>

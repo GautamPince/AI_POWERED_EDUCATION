@@ -1,57 +1,60 @@
-# Implementation Plan - AI-Powered Vernacular Education Platform
+# MVP Architecture Plan - AI-Powered Vernacular Exam Prep
 
-## Goal Description
-Build a premium, high-trust educational platform tailored for India's Tier 2/3 cities. The platform leverages AI to generate personalized study plans in native languages (Hindi, Tamil, etc.) and connects users with verified mentors.
-**Key Differentiator:** Uncompromising focus on **TRUST**. Every element of the UI must answer "Why should I trust this?"
+## 1. Architecture Principles
+- **Outcome-first**: Every feature must drive score improvement.
+- **Manual > Automated**: Don't build what can be done manually first.
+- **Replaceable Components**: No vendor lock-in.
+- **WhatsApp-compatible**: Core communication happens where users are.
 
-## User Review Required
-> [!IMPORTANT]
-> **Trust Mechanism Strategy**: We are implementing a "Triple-Lock Trust System":
-> 1. **Identity Verification**: UI for mentors to upload credentials.
-> 2. **Outcome Transparency**: A dedicated section showing real placement stats (mocked for MVP).
-> 3. **Risk-Free Trial**: Prominent "No Credit Card Required" AI assessment.
+## 2. High-Level System Architecture
+```mermaid
+graph TD
+    User[Learner (Mobile)] --> WebApp[Next.js PWA]
+    WebApp --> API[Backend API Layer]
+    API --> DB[(Supabase/Postgres)]
+    API --> AI[AI Services (LLM)]
+    API --> Content[Content & Video]
+    Mentor[Mentor Dashboard] --> API
+```
 
-## Proposed Changes
+## 3. Database Schema (PostgreSQL/Supabase)
 
-### Tech Stack
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: TailwindCSS + Shadcn/UI (for clean, professional look)
-- **Animation**: Framer Motion (to create a "Premium" feel, moving away from static government-style portals)
-- **Icons**: Lucide React
+### Core Entities
+- **USER**: `id, name, phone, language, role`
+- **EXAM**: `id, name, level, state`
+- **TOPIC**: `id, exam_id, name, difficulty`
+- **CONTENT**: `id, topic_id, type (video/pdf), url`
+- **DIAGNOSTIC_RESULT**: `id, user_id, score, topic_breakdown (JSON)`
+- **STUDY_PLAN**: `id, user_id, start_date, status`
+- **STUDY_PLAN_ITEM**: `id, plan_id, topic_id, content_id, day_number`
+- **MENTOR_ASSIGNMENT**: `id, mentor_id, user_id`
+- **MENTOR_SESSION**: `id, mentor_id, user_id, notes, rating`
 
-### Directory Structure (New)
-We will initialize the project in `E:\react js\algo\picture_creating\AI_POWERED_EDUCATION`.
+**Key Rule**: `Exam → Topic → Content → Score Outcome` mapping is mandatory.
 
-#### [NEW] /components/trust
-Specialized components to build credibility:
-- `VerifiedBadge.tsx`: Visual indicator of checked credentials.
-- `SuccessTicker.tsx`: "Rohan from Patna just got a job at..."
-- `MentorCard.tsx`: Highlights "Years of Experience" and "Language Fluency".
+## 4. API Specification (MVP)
 
-#### [NEW] /app/[lang]/
-- Dynamic routing for language support (e.g., /hi/ for Hindi, /ta/ for Tamil).
+### Authentication
+- `POST /auth/login` (Mobile/OTP)
+- `GET /auth/me`
 
-### Key Features to Implement First
+### Diagnostics & Plans
+- `POST /diagnostic/submit`: Ingests test results.
+- `POST /study-plan/generate`: Triggers AI Plan Engine.
+- `GET /study-plan/{userId}`: Returns current daily tasks.
 
-#### 1. The "Trust-First" Landing Page
-- **Hero Section**: Not just a generic tagline, but a promise. "Verified Skills. Real Jobs. In Your Language."
-- **Social Proof**: Logos of hiring partners, scrolling ticker of student wins.
-- **Language Switcher**: Prominently placed, not hidden in a footer.
+### Mentor System
+- `GET /mentor/students/{mentorId}`: List of assigned learners.
+- `POST /mentor/session`: Log session outcomes.
 
-#### 2. AI Study Planner (The "Hook")
-- Simple wizard: "What do you want to become?" (e.g., Bank PO, Python Dev) -> "What language?" -> **AI Generates Roadmap**.
-- *Trust Factor*: The roadmap explains *why* each step is needed.
+## 5. Technology Stack
+- **Frontend**: Next.js 14 (App Router)
+- **Backend/DB**: Supabase (Auth + Postgres)
+- **AI**: OpenAI API (for Plan Generation)
+- **Deployment**: Vercel
 
-#### 3. Mentor Verification Flow
-- A dedicated page showing *how* we verify mentors (Interview process, ID check transparency).
-
-## Verification Plan
-
-### Automated Tests
-- Build verification: `npm run build`
-- Lint checks: `npm run lint`
-
-### Manual Verification
-- **Visual Trust Check**: Does the design look "scammy" or "premium"? (Subjective review of colors/typography).
-- **Responsiveness**: Check on simulated low-end Android devices (common in target demographic).
-- **Language Flow**: Ensure switching languages doesn't break the layout.
+## 6. Implementation Stages (See task.md for tracking)
+1. **Setup**: Project init & DB Schema migration.
+2. **Core Flow**: Diagnostic -> AI Plan Gen -> Dashboard View.
+3. **Content**: Video/PDF Viewer integration.
+4. **Mentor Ops**: Dashboard for mentors to view student progress.

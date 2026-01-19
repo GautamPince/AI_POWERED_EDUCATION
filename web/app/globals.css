@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --background: #F0F5FA; /* trust-50 */
+  --foreground: #0A2647; /* trust-900 */
+
+  /* Trust Palette */
+  --trust-900: #0A2647;
+  --trust-800: #144272;
+  --trust-700: #205295;
+  --trust-500: #2C74B3;
+  --trust-50:  #F0F5FA;
+
+  /* Status */
+  --verified: #059669;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Expose colors as utilities (e.g. bg-trust-900) */
+  --color-trust-900: var(--trust-900);
+  --color-trust-800: var(--trust-800);
+  --color-trust-700: var(--trust-700);
+  --color-trust-500: var(--trust-500);
+  --color-trust-50: var(--trust-50);
+  
+  --color-verified: var(--verified);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

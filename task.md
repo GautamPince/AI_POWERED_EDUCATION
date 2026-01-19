@@ -1,23 +1,23 @@
-# Task: AI-Powered Vernacular Education Platform
+# Task: AI-Powered Vernacular Exam Prep (Execution First)
 
-- [ ] **Phase 1: Foundation & Trust Architecture**
-    - [ ] Initialize Next.js Project with TypeScript & Tailwind
-    - [ ] Setup Design System (Premium, clean aesthetics, trustworthy colors)
-    - [ ] Create "Trust Components" Library (Verified Badges, Testimonial cards, Stat counters)
-    - [ ] Implement Multi-language Support Layout (i18n structure)
+- [ ] **Phase 0 & 1: Readiness & Validation (User Actions)**
+    - [ ] Select ONE exam + language (e.g., SSC-GD in Hindi)
+    - [ ] Define success outcome (e.g., "80% improve scores by 30%")
+    - [ ] Interview 50-75 aspirants for failure patterns
 
-- [ ] **Phase 2: Core Product Areas**
-    - [ ] **Landing Page**: High-conversion design with immediate "Trust Signals"
-    - [ ] **AI Learning Path Generator**: UI for inputting current skills -> target goal
-    - [ ] **Mentor Marketplace**: Grid view with filtering by language and success rate
-    - [ ] **Course/Content Viewer**: Video/Text player with vernacular toggle
+- [/] **Phase 2: MVP Build (Weeks 7-12) - CURRENT FOCUS**
+    - [x] **Tech Foundation**: Initialize Next.js + Tailwind (Variant 1 Theme)
+    - [x] **Trust UI Layer**: Implement "Trust Shield" tokens (Deep Navy/Teal)
+    - [/] **Feature 1: Diagnostic Test Engine** (Simple form -> Score)
+    - [ ] **Feature 2: AI Study Plan Generator** (Input -> Roadmap)
+    - [ ] **Feature 3: Content Delivery** (Video embed + PDF viewer)
+    - [ ] **Feature 4: Mentor Check-in** (WhatsApp integration UI)
+    - [ ] **Dashboard**: Simple progress tracking (Mock scores)
 
-- [ ] **Phase 3: Verification & Social Proof**
-    - [ ] "Verified Mentor" Profile Page
-    - [ ] Student Success Stories/Outcome Dashboard
-    - [ ] Real-time Learning Activity Ticker (Social Proof)
+- [ ] **Phase 3: First Cohort Launch**
+    - [ ] Setup Analytics (Track completion > 60%)
+    - [ ] Enable Manual Onboarding Flow
 
-- [ ] **Phase 4: Polish & Interaction**
-    - [ ] Micro-animations for engagement
-    - [ ] Responsive Testing
-    - [ ] SEO Optimization (Vernacular keywords)
+- [ ] **Phase 4: Trust Layer & Refinement**
+    - [ ] Automated "Trust Shield" verified badges
+    - [ ] Outcome Dashboard (Real data, no mocks)
