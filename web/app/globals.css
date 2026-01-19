@@ -1,16 +1,33 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-progress: progress 2s ease-in-out infinite;
+
+  @keyframes progress {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+
 :root {
   /* Base */
-  --background: #F0F5FA; /* trust-50 */
-  --foreground: #0A2647; /* trust-900 */
+  --background: #F0F5FA;
+  /* trust-50 */
+  --foreground: #0A2647;
+  /* trust-900 */
 
   /* Trust Palette */
   --trust-900: #0A2647;
   --trust-800: #144272;
   --trust-700: #205295;
   --trust-500: #2C74B3;
-  --trust-50:  #F0F5FA;
+  --trust-50: #F0F5FA;
 
   /* Status */
   --verified: #059669;
@@ -26,7 +43,7 @@
   --color-trust-700: var(--trust-700);
   --color-trust-500: var(--trust-500);
   --color-trust-50: var(--trust-50);
-  
+
   --color-verified: var(--verified);
 }
 

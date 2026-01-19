@@ -75,7 +75,11 @@ export default function DiagnosticPage() {
                                     {["Mathematics / Quant", "English Language", "General Knowledge", "Reasoning"].map((weakness) => (
                                         <button
                                             key={weakness}
-                                            onClick={() => { setFormData({ ...formData, weakness }); alert("Diagnostic Complete! (MVP End)"); }}
+                                            onClick={() => {
+                                                setFormData({ ...formData, weakness });
+                                                // MVP: Redirect to plan
+                                                window.location.href = "/plan";
+                                            }}
                                             className="p-4 rounded-xl border-2 border-gray-100 hover:border-trust-500 hover:bg-trust-50 text-left transition font-semibold text-gray-700"
                                         >
                                             {weakness}
