@@ -34,7 +34,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button className="text-trust-700 font-medium hover:bg-trust-50 px-4 py-2 rounded-lg transition">Log in</button>
+            <Link href="/login" className="text-trust-700 font-medium hover:bg-trust-50 px-4 py-2 rounded-lg transition">Log in</Link>
             <Link href="/diagnostic" className="bg-trust-800 hover:bg-trust-900 text-white px-5 py-2.5 rounded-lg font-semibold shadow-lg shadow-trust-900/20 transition flex items-center">
               Start Free Assessment
               <ArrowRight className="w-4 h-4 ml-2" />

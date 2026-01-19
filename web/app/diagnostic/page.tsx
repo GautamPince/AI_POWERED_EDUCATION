@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, ShieldCheck } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, CheckCircle, ShieldCheck, Loader2 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { supabase } from "@/lib/supabase";
 
 export default function DiagnosticPage() {
+    const router = useRouter();
     const [step, setStep] = useState(1);
+    const [userId, setUserId] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         exam: "",
         prevScore: "",
@@ -15,13 +20,53 @@ export default function DiagnosticPage() {
 
     useEffect(() => {
         trackEvent("diagnostic_start");
-    }, []);
+
+        // Check if user is logged in
+        const checkAuth = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) {
+                router.push("/login");
+            } else {
+                setUserId(user.id);
+            }
+        };
+        checkAuth();
+    }, [router]);
 
     const handleNext = () => setStep(step + 1);
 
+    const handleDiagnosticComplete = async (weakness: string) => {
+        setFormData({ ...formData, weakness });
+        trackEvent("diagnostic_complete", {
+            exam: formData.exam,
+            score: formData.prevScore,
+            weakness: weakness
+        });
+
+        setLoading(true);
+
+        try {
+            const { error } = await supabase
+                .from('diagnostics')
+                .insert({
+                    user_id: userId,
+                    exam_target: formData.exam,
+                    previous_score: formData.prevScore,
+                    weakness: weakness
+                });
+
+            if (error) throw error;
+            router.push("/plan");
+        } catch (error) {
+            console.error("Error saving diagnostic:", error);
+            alert("Failed to save your diagnostic. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-trust-50 font-sans flex flex-col">
-            {/* Simple Header */}
             <header className="bg-white border-b border-gray-200 py-4 px-6">
                 <div className="container mx-auto flex justify-between items-center">
                     <Link href="/" className="font-bold text-trust-900 text-xl flex items-center">
@@ -34,8 +79,6 @@ export default function DiagnosticPage() {
 
             <main className="flex-grow container mx-auto px-6 py-12">
                 <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-
-                    {/* Form Section */}
                     <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
                         {step === 1 && (
                             <div className="space-y-6">
@@ -61,7 +104,7 @@ export default function DiagnosticPage() {
                                 <input
                                     type="text"
                                     placeholder="Enter previous score (or 0 if new)"
-                                    className="w-full p-4  rounded-xl border-2 border-gray-200 focus:border-trust-500 outline-none text-lg"
+                                    className="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-trust-500 outline-none text-lg"
                                     onChange={(e) => setFormData({ ...formData, prevScore: e.target.value })}
                                 />
                                 <button
@@ -80,19 +123,12 @@ export default function DiagnosticPage() {
                                     {["Mathematics / Quant", "English Language", "General Knowledge", "Reasoning"].map((weakness) => (
                                         <button
                                             key={weakness}
-                                            onClick={() => {
-                                                setFormData({ ...formData, weakness });
-                                                trackEvent("diagnostic_complete", {
-                                                    exam: formData.exam,
-                                                    score: formData.prevScore,
-                                                    weakness: weakness
-                                                });
-                                                // MVP: Redirect to plan
-                                                window.location.href = "/plan";
-                                            }}
-                                            className="p-4 rounded-xl border-2 border-gray-100 hover:border-trust-500 hover:bg-trust-50 text-left transition font-semibold text-gray-700"
+                                            disabled={loading}
+                                            onClick={() => handleDiagnosticComplete(weakness)}
+                                            className="p-4 rounded-xl border-2 border-gray-100 hover:border-trust-500 hover:bg-trust-50 text-left transition font-semibold text-gray-700 disabled:opacity-50 flex items-center justify-between"
                                         >
-                                            {weakness}
+                                            <span>{weakness}</span>
+                                            {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                                         </button>
                                     ))}
                                 </div>
@@ -100,7 +136,6 @@ export default function DiagnosticPage() {
                         )}
                     </div>
 
-                    {/* Trust Sidebar */}
                     <div className="hidden md:block py-8">
                         <div className="bg-trust-900 text-white p-8 rounded-2xl shadow-lg">
                             <h3 className="text-xl font-bold mb-6">Why take this test?</h3>
@@ -120,7 +155,6 @@ export default function DiagnosticPage() {
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </main>
         </div>
