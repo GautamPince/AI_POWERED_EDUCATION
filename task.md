@@ -1,0 +1,29 @@
+# Idea #3: AI-Powered Vernacular Education & Upskilling
+
+- [ ] **Phase 0: Founder Readiness (Week 0-2)**
+    - [ ] Define Exam + Language pair (e.g., SSC-GD/Hindi) <!-- id: 13 -->
+    - [ ] Define Success Outcome Metrics <!-- id: 14 -->
+    - [ ] Create "What NOT to build" list <!-- id: 15 -->
+    - [x] Create Architecture Blueprint <!-- id: 2 -->
+    - [x] Create Mentor QA Framework <!-- id: 24 -->
+    - [x] Define AI Prompt Library <!-- id: 25 -->
+    - [x] Initialize Git Repository <!-- id: 26 -->
+- [ ] **Phase 1: Problem Validation (Week 3-6)**
+    - [ ] Create User Interview Script <!-- id: 16 -->
+    - [ ] Document User Persona (patterns, friction) <!-- id: 17 -->
+- [ ] **Phase 2: MVP Build (Weeks 7-12)**
+    - [ ] **Architecture & Tech Stack**
+        - [x] Define MVP Architecture (Next.js + Supabase) <!-- id: 21 -->
+        - [x] Define Data Model High-Level <!-- id: 3 -->
+        - [x] Define Mentor Framework <!-- id: 22 -->
+    - [ ] **Development Initialization**
+        - [ ] Initialize Next.js Project (PWA setup) <!-- id: 4 -->
+        - [ ] Configure Supabase (Auth + DB) <!-- id: 23 -->
+    - [ ] **Core Features**
+        - [ ] Implement Diagnostic Test Engine <!-- id: 6 -->
+        - [ ] Build AI Study Plan Generator <!-- id: 18 -->
+        - [ ] Build Progress Dashboard (Student View) <!-- id: 9 -->
+        - [ ] Build Mentor Dashboard (Internal) <!-- id: 19 -->
+- [ ] **Phase 3: First Cohort (Month 4-5)**
+    - [ ] Setup Analytics for Outcome Tracking <!-- id: 20 -->
+    - [ ] Launch Prep <!-- id: 12 -->
