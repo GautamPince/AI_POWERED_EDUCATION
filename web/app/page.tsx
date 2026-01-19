@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrustTicker from "@/components/TrustTicker";
 import { ShieldCheck, CheckCircle, GraduationCap, ArrowRight, PlayCircle, Building2, Briefcase, Landmark } from "lucide-react";
 
 export default function Home() {
@@ -43,13 +44,8 @@ export default function Home() {
       </nav>
 
       {/* Placement Ticker (CSS Animation can be added later, static for now) */}
-      <div className="bg-trust-900 text-white/90 text-sm py-2 overflow-hidden whitespace-nowrap">
-        <div className="container mx-auto flex space-x-8">
-          <span>✨ <span className="text-yellow-400 font-bold">Rajan K. (Bhopal)</span> joined <span className="font-bold">HDFC Bank</span></span>
-          <span>✨ <span className="text-yellow-400 font-bold">Priya S. (Madurai)</span> placed at <span className="font-bold">TCS iON</span></span>
-          <span>✨ <span className="text-yellow-400 font-bold">Amit V. (Kanpur)</span> verified <span className="font-bold">Electrician</span></span>
-        </div>
-      </div>
+      {/* Dynamic Social Proof Ticker */}
+      <TrustTicker />
 
       {/* Hero Section */}
       <main className="flex-grow bg-white relative overflow-hidden">

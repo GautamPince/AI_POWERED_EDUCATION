@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, ShieldCheck } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function DiagnosticPage() {
     const [step, setStep] = useState(1);
@@ -11,6 +12,10 @@ export default function DiagnosticPage() {
         prevScore: "",
         weakness: "",
     });
+
+    useEffect(() => {
+        trackEvent("diagnostic_start");
+    }, []);
 
     const handleNext = () => setStep(step + 1);
 
@@ -77,6 +82,11 @@ export default function DiagnosticPage() {
                                             key={weakness}
                                             onClick={() => {
                                                 setFormData({ ...formData, weakness });
+                                                trackEvent("diagnostic_complete", {
+                                                    exam: formData.exam,
+                                                    score: formData.prevScore,
+                                                    weakness: weakness
+                                                });
                                                 // MVP: Redirect to plan
                                                 window.location.href = "/plan";
                                             }}
