@@ -122,7 +122,7 @@ export default function Home() {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white p-4 rounded-xl shadow-xl border border-gray-100">
+              <div className="absolute -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 animate-bounce cursor-pointer hover:scale-105 transition" style={{ top: "-2px" }}>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-verified">
                     <CheckCircle className="w-6 h-6" />

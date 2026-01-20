@@ -112,7 +112,7 @@ export default function DashboardPage() {
                             </div>
                             <span className="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase">Resume</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-1">Today's Study Plan</h3>
+                        <h3 className="text-xl font-bold mb-1">Today&apos;s Study Plan</h3>
                         <p className="text-blue-200 text-sm mb-4">Focus on {weakness}</p>
                         <div className="flex items-center font-bold text-sm text-blue-100 group-hover:text-white">
                             Continue Learning <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition" />
