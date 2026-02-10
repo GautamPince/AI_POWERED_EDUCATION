@@ -6,11 +6,25 @@ import Link from "next/link";
 import { BarChart, BookOpen, User, ShieldCheck, ArrowRight, Bell, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+interface UserData {
+    id: string;
+    full_name?: string;
+    email?: string;
+}
+
+interface DiagnosticData {
+    id: string;
+    user_id: string;
+    exam_target?: string;
+    weakness?: string;
+    created_at?: string;
+}
+
 export default function DashboardPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
-    const [userData, setUserData] = useState<any>(null);
-    const [diagnosticData, setDiagnosticData] = useState<any>(null);
+    const [userData, setUserData] = useState<UserData | null>(null);
+    const [diagnosticData, setDiagnosticData] = useState<DiagnosticData | null>(null);
 
     useEffect(() => {
         const fetchUserData = async () => {

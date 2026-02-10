@@ -121,15 +121,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating Badge */}
-              <div className="absolute -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 animate-bounce cursor-pointer hover:scale-105 transition" style={{ top: "-2px" }}>
+              {/* Floating Badge with Smooth Transitions */}
+              <div className="absolute -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 cursor-pointer hover:shadow-2xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 animate-bounce" style={{ top: "-2px" }}>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-verified">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-verified transition-transform duration-300 group-hover:rotate-12">
                     <CheckCircle className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 font-medium">Placement Rate</p>
-                    <p className="text-lg font-bold text-gray-900">92% Success</p>
+                    <p className="text-xs text-gray-500 font-medium transition-colors duration-200">Placement Rate</p>
+                    <p className="text-lg font-bold text-gray-900 transition-all duration-200">92% Success</p>
                   </div>
                 </div>
               </div>
